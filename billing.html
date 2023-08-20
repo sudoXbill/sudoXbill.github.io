@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Icons/bill (1).png">
+    <title>Bill</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous"></script>
+<script src="src/tableHTMLExport.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
+     
+<script>
+        let t=0;
+        let icount=0;
+        function notu()
+        {
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+        }
+        function myFunction() {
+        
+        var table = document.getElementById("myTable");
+        var row = table.insertRow(1);
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3=row.insertCell(2);
+        var cell4=row.insertCell(3);
+        var product=document.getElementById("pr").value;
+        var qty=document.getElementById("qt").value;
+        var price=document.getElementById("p").value;
+        if(product==""&&qty==""&&price=="")
+        {
+            alert("Oops...Fill all");
+            
+        }
+        else
+        {
+        icount=icount+1;
+        
+        document.getElementById("co").innerHTML=icount;
+        let total=parseInt(Number(price))*parseInt(Number(qty));
+        document.getElementById("to").value=total;
+        t=t+total;
+        document.getElementById("to").innerHTML=t;
+        cell1.innerHTML = product;
+        cell2.innerHTML = qty;
+        cell3.innerHTML=price;
+        cell4.innerHTML = total;
+        document.getElementById("pr").value="";
+        
+        document.getElementById("qt").value="";
+
+
+        document.getElementById("p").value="";
+      }
+
+        
+}
+    function clr()
+    {
+
+        document.getElementById("pr").value="";
+        
+        document.getElementById("qt").value="";
+
+
+        document.getElementById("p").value="";
+
+        document.getElementById("co").value="";
+
+    }
+    function Export() {
+        //alert(t);
+          var table = document.getElementById("myTable");
+        var row = table.insertRow();
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3=row.insertCell(2);
+        cell1.innerHTML = "";
+        cell2.innerHTML = "Total Items:";
+        cell3.innerHTML = icount;
+
+        var row1 = table.insertRow();
+        var cell11 = row1.insertCell(0);
+        var cell22 = row1.insertCell(1);
+        var cell33=row1.insertCell(2);
+        cell11.innerHTML = "";
+        cell22.innerHTML = "Total Amout:";
+        cell33.innerHTML = t;
+
+            html2canvas(document.getElementById('myTable'), {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500,
+                        
+                          }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("Bill.pdf");
+                }
+            });
+            alert("Bill Genrate sucessfuly And Welcome")
+            
+        }
+   
+
+
+    </script>
+    
+    
+</script>
+
+<style>
+    body{
+        background-image: url("Pages/Frame_2.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+    }
+    .date{
+        position: fixed;
+  top: 13px;
+  right: 100px;
+  width: 260px;
+  height: 130px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+    }
+    .ftxt{
+        position: fixed;
+        top: 123px;
+        right: 890px;
+        width: 260px;
+        height: 30px;
+
+    }
+    .stxt{
+        position: fixed;
+        top: 123px;
+        right: 670px;
+        width: 260px;
+        height: 30px;
+
+    }
+    .ttxt{
+        position: fixed;
+        top: 123px;
+        right: 450px;
+        width: 260px;
+        height: 30px;
+
+    }
+    .btxt{
+        position: fixed;
+        top: 163px;
+        right: 220px;
+        width: 260px;
+        height: 30px;
+
+    }
+
+.button-92 {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+    #ff0000;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+}
+
+.button-92:hover,
+.button-92:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+.button-92:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9q #0005;
+  transition: 0s;
+}
+
+.button-92 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  cursor: pointer;
+  padding: .1em .3em;
+}
+.stable{
+    
+        position: fixed;
+        top:253px;
+        right: 890px;
+        width: 260px;
+        height: 30px;
+
+  
+} 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: rgb(137, 236, 107);}
+.right{
+
+        position: fixed;
+        top: 363px;
+        right: 55px;
+        width: 160px;
+        height: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        
+}
+.total{
+        position: fixed;
+        top: 513px;
+        right: 55px;
+        width: 100px;
+        height: 200px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        
+
+}
+.ctxt{
+  position: fixed;
+        top: 283px;
+        right: 200px;
+        width: 260px;
+        height: 30px;
+    }
+    .button-91 {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+    #0400ff;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+}
+
+.button-91:hover,
+.button-91:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+.button-91:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9q #0005;
+  transition: 0s;
+}
+
+.button-91 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  cursor: pointer;
+  padding: .1em .3em;
+}
+.bl{
+      position: fixed;
+        top: 573px;
+        right: 2px;
+        width: 150px;
+        height: 30px;
+}
+
+</style>
+<body onload="notu()">
+    <div class="date">
+        <p id="date"></p>
+    </div>
+    <div class="ftxt">
+               <h4>Prodcut Name:</h4>
+                <input type="text" id="pr">
+    </div>
+    <div class="stxt">
+        <h4>Qty:</h4>
+         <input type="text" id="qt">
+    </div>
+    <div class="ttxt">
+        <h4>Price:</h4>
+         <input type="text" id="p">
+    </div>
+    <div class="btxt">
+        <button class="button-92" onclick="myFunction()" role="button">Add</button>
+        
+    </div>
+    <div class="stable">
+        <table id="myTable" style="width:200%">
+          <tr>
+          <th>Product Name</th>
+          <th>Qty</th>
+          <th>Net Price</th>
+          <th>Price</th>
+          </tr>
+          </table>
+    </div>
+    
+    <div class="total">
+            <label id="to"></label>
+    </div>
+    <div class="right">
+          No of Items : <label id="co"></label>
+    </div>
+    
+      <div class="ctxt">
+        <button class="button-92" onclick="clr()" role="button">X</button>
+        
+      </div>
+    <div class="bl">
+        <button class="button-91" onclick="Export()" accesskey="p" role="button">Bill</button>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    
+    </div>
+    
+
+
+
+</body>
+</html>

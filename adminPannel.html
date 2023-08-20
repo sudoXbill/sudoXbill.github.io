@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="Icons/admin (3).png">
+    <title>Admin</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
+        crossorigin="anonymous"></script>
+<script src="src/tableHTMLExport.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.4.1/jspdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/2.3.5/jspdf.plugin.autotable.min.js"></script>
+     
+<script>
+        
+        function notu()
+        {
+        n =  new Date();
+        y = n.getFullYear();
+        m = n.getMonth() + 1;
+        d = n.getDate();
+        document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+        }
+ 
+    function clr()
+    {
+
+        document.getElementById("pr").value="";
+        
+        document.getElementById("qt").value="";
+
+
+        document.getElementById("p").value="";
+
+        document.getElementById("co").value="";
+
+    }
+function save() {
+   
+var table = document.getElementById("myTable");
+var row = table.insertRow(1);
+var cell1 = row.insertCell(0);
+var cell3=row.insertCell(1);
+var product=document.getElementById("pr").value;
+var price=document.getElementById("p").value;
+
+
+
+
+if(product==""&&price=="")
+{
+    alert("Oops...Fill all");
+    
+}
+else
+{
+    
+cell1.innerHTML = product;
+cell3.innerHTML = price;
+document.getElementById("pr").value="";
+document.getElementById("p").value="";
+
+}
+
+
+}
+    
+    
+</script>
+
+
+<style>
+    body{
+        background-image: url("Pages/admin1.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+
+    }
+    .date{
+        position: fixed;
+  top: 13px;
+  right: 100px;
+  width: 260px;
+  height: 130px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+    }
+    .ftxt{
+        position: absolute;
+        top: 223px;
+        right: 690px;
+        width: 260px;
+        height: 30px;
+
+    }
+    .stxt{
+        position: absolute;
+        top: 223px;
+        right: 670px;
+        width: 260px;
+        height: 30px;
+
+    }
+    .ttxt{
+        position: absolute;
+        top: 223px;
+        right: 450px;
+        width: 260px;
+        height: 30px;
+
+    }
+    .btxt{
+        position: absolute;
+        top: 263px;
+        right: 220px;
+        width: 260px;
+        height: 30px;
+
+    }
+
+.button-92 {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+    #ff0000;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+}
+
+.button-92:hover,
+.button-92:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+.button-92:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9q #0005;
+  transition: 0s;
+}
+
+.button-92 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  cursor: pointer;
+  padding: .1em .3em;
+}
+.stable{
+        
+        position: absolute;
+        top:353px;
+        right: 890px;
+        width: 260px;
+        height: 30px;
+
+  
+} 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tr:hover {background-color: rgb(137, 236, 107);}
+.right{
+
+        position: absolute;
+        top: 363px;
+        right: 55px;
+        width: 160px;
+        height: 30px;
+        font-size: 20px;
+        font-weight: bold;
+        
+}
+.total{
+        position: absolute;
+        top: 513px;
+        right: 55px;
+        width: 100px;
+        height: 200px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        
+
+}
+.ctxt{
+  position: absolute;
+        top: 283px;
+        right: 200px;
+        width: 260px;
+        height: 30px;
+    }
+    .button-91 {
+  --c: #fff;
+  /* text color */
+  background: linear-gradient(90deg, #0000 33%, #fff5, #0000 67%) var(--_p,100%)/300% no-repeat,
+    #0400ff;
+  /* background color */
+  color: #0000;
+  border: none;
+  transform: perspective(500px) rotateY(calc(20deg*var(--_i,-1)));
+  text-shadow: calc(var(--_i,-1)* 0.08em) -.01em 0   var(--c),
+    calc(var(--_i,-1)*-0.08em)  .01em 2px #0004;
+  outline-offset: .1em;
+  transition: 0.3s;
+}
+
+.button-91:hover,
+.button-91:focus-visible {
+  --_p: 0%;
+  --_i: 1;
+}
+
+.button-91:active {
+  text-shadow: none;
+  color: var(--c);
+  box-shadow: inset 0 0 9e9q #0005;
+  transition: 0s;
+}
+
+.button-91 {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 0;
+  cursor: pointer;
+  padding: .1em .3em;
+}
+.bl{
+      position: fixed;
+        top: 673px;
+        right: 2px;
+        width: 150px;
+        height: 30px;
+}
+
+</style>
+<body onload="notu()">
+    <form action="">
+    <div class="date">
+        <p id="date"></p>
+    </div>
+    <div class="ftxt">
+               <h4>Prodcut Name:</h4>
+                <input type="text" id="pr">
+    </div>
+    
+    <div class="ttxt">
+        <h4>Price:</h4>
+         <input type="text" id="p">
+    </div>
+    <div class="btxt">
+        <button id="sa" class="button-92" onclick="save()" role="button" >Add</button>
+        <script src="https://www.gstatic.com/firebasejs/10.2.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.2.0/firebase-database.js"></script>
+
+ 
+        
+    </div>
+    <div class="stable">
+        <table id="myTable" style="width:200%">
+          <tr>
+          <th>Product Name</th>
+          <th>Price</th>
+          </tr>
+          </table>
+    </div>
+    
+    
+    </div>
+</form>
+
+
+
+</body>
+
+
+
+</html>
